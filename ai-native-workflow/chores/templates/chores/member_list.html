@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Household Members</title>
+</head>
+<body>
+    <h1>Household Members</h1>
+
+    <ul>
+        {% for member in members %}
+            <li>{{ member.name }}</li>
+        {% empty %}
+            <li>No members yet.</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Add a member</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add member</button>
+    </form>
+</body>
+</html>
